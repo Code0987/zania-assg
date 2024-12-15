@@ -2,7 +2,7 @@
 
 ## Project Structure
 ```
-|   .env                         # Environment variables
+|   .env                         # Environment variables i.e. AUTH_TOKEN, DATABASE_URL
 |   docker-compose.yaml          # Docker Compose file
 |   Dockerfile                   # Docker file for api service
 |   example.py                   # Example API calls
@@ -64,6 +64,9 @@ Above `example.py` contains API calls cases ~ for creating products, getting all
 
 ## Automated Tests
 1. `docker compose down --remove-orphans --volumes && docker compose up --build api_tests`
+
+
+NOTE: `.env` contains `AUTH_TOKEN` which is used for authentication. This is not a real token, it is just for testing purposes.
 
 
 ## Docs
