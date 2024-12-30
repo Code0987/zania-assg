@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
-from ..db import init_db
-from .endpoints import router as api_router
+# from ..db import init_db
+from .menu import router as menu_router
 
 
 def get_fastapi():
@@ -20,8 +20,8 @@ def get_fastapi():
     return _api
 
 
-# Setup DB
-init_db()
+# # Setup DB
+# init_db()
 
 api = get_fastapi()
 
@@ -40,4 +40,4 @@ def get():
     return {"message": "Hello World!"}
 
 
-api.include_router(api_router)
+api.include_router(menu_router)
