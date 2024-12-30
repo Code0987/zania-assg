@@ -1,18 +1,18 @@
 version: "3.8"
 
 services:
-  db:
-    image: postgres:14
-    container_name: db
-    restart: always
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: db
-    ports:
-      - "5432:5432"
-    volumes:
-      - db_data:/var/lib/postgresql/data
+  # db:
+  #   image: postgres:14
+  #   container_name: db
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: db
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - db_data:/var/lib/postgresql/data
 
   api:
     build: .
@@ -23,17 +23,17 @@ services:
       - "80:80"
     volumes:
       - ./app:/app:rw
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
 
-  api_tests:
-    build: .
-    container_name: api_tests
-    env_file:
-      - .env
-    depends_on:
-      - db
-    command: ["pytest", "--disable-warnings", "tests/"]
+  # api_tests:
+  #   build: .
+  #   container_name: api_tests
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - db
+  #   command: ["pytest", "--disable-warnings", "tests/"]
 
-volumes:
-  db_data:
+# volumes:
+#   db_data:
